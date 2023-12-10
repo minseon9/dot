@@ -1,0 +1,101 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+" options and mappings that are supported by both Vim and IdeaVim
+set nu
+set relativenumber
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+Plug 'preservim/nerdtree'
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+
+let mapleader="\<Space>"
+
+if has('ide')
+  " mappings and options that exist only in IdeaVim
+  map <leader>t <Action>(ActivateTerminalToolWindow)
+  map <leader>tt <Action>(HideActiveWindow)
+
+  map <leader><Esc> <Action>(SaveAll)<Action>(IdeaVim.ReloadVimRc.reload)
+  map <leader>f <Action>(GotoFile)
+
+  map <leader>p <Action>(ActivateProjectToolWindow)
+  map <leader><CR> <Action>(GotoDeclaration)
+  map <leader>[ <Action>(Back)
+  map <leader>] <Action>(Forward)
+  map <leader>l <Action>(GotoLine)
+
+  map <C-S-l> <Action>(MoveTabRight)
+  map <C-l> <Action>(NextSplitter)
+  map <C-h> <Action>(PrevSplitter)
+
+  map L <Action>(NextTab)
+  map H <Action>(PreviousTab)
+
+
+  map <leader>ls <Action>(GotoClass)
+  map <leader>lS <Action>(GotoSymbol)
+  map <leader>g <Action>(FindInPath)
+  map <leader>r <Action>(SynchronizeCurrentFile)
+  map <leader>sa <Action>(GotoAction)
+  map <leader>e :NERDTreeFind<CR>
+  map <leader>dt <Action>(ToggleLineBreakpoint)
+
+  map <leader>bh <Action>(CloseAllToTheLeft)
+  map <leader>bl <Action>(CloseAllToTheRight)
+  map <leader>q <Action>(Unsplit)
+  map <leader>nn <Action>(MarkNotificationsAsRead)
+
+  map <M-k> :m-2<CR>
+  map <M-j> :m+<CR>
+  vnoremap <A-j> :m '>+1<CR>gv=gv
+  vnoremap <A-k> :m '<-2<CR>gv=gv
+  map <leader>/ <Action>(CommentByLineComment)
+
+  map <leader>hh <Action>(PopupHector)
+  map <leader>lr <Action>(RenameElement)
+  map gr <Action>(FindUsages)
+  map gl <Action>(ShowErrorDescription)
+  map <leader>O <Action>(OptimizeImports)
+  map <leader>lj <Action>(GotoNextError)
+  map <leader>lk <Action>(GotoPreviousError)
+
+  if &ide =~? 'intellij idea'
+    if &ide =~? 'community'
+      " some mappings and options for IntelliJ IDEA Community Edition
+    elseif &ide =~? 'ultimate'
+      " some mappings and options for IntelliJ IDEA Ultimate Edition
+    endif
+  elseif &ide =~? 'pycharm'
+    " PyCharm specific mappings and options
+  endif
+else
+  " some mappings for Vim/Neovim
+  nnoremap <leader>f <cmd>Telescope find_files<cr>
+endif
