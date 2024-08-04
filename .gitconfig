@@ -1,0 +1,13 @@
+[user]
+	name = miseon9
+	email = dlaepeul@gmail.com
+[diff]
+	color = true
+	tool = nvimdiff
+[merge]
+	conflictStyle = diff3
+	tool = nvimdiff
+[color]
+	diff = auto
+	status = always
+	branch = auto
