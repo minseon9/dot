@@ -42,7 +42,7 @@ if has('ide')
   map <leader>t <Action>(ActivateTerminalToolWindow)
   map <leader>tt <Action>(HideActiveWindow)
 
-  map <leader><Esc> <Action>(SaveAll)<Action>(IdeaVim.ReloadVimRc.reload)
+  map <leader>s <Action>(SaveAll)<Action>(IdeaVim.ReloadVimRc.reload)
   map <leader>f <Action>(GotoFile)
 
   map <leader>p <Action>(ActivateProjectToolWindow)
@@ -85,6 +85,7 @@ if has('ide')
   map <leader>O <Action>(OptimizeImports)
   map <leader>lj <Action>(GotoNextError)
   map <leader>lk <Action>(GotoPreviousError)
+  map <leader>b <Action>(ToggleLineBreakpoint)
 
   if &ide =~? 'intellij idea'
     if &ide =~? 'community'
@@ -95,7 +96,7 @@ if has('ide')
   elseif &ide =~? 'pycharm'
     " PyCharm specific mappings and options
   endif
-else
-  " some mappings for Vim/Neovim
-  nnoremap <leader>f <cmd>Telescope find_files<cr>
-endif
+  else
+    " some mappings for Vim/Neovim
+    nnoremap <leader>f <cmd>Telescope find_files<cr>
+  endif
