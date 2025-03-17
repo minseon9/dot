@@ -1,5 +1,13 @@
 # My Dot Files
 
+---  
+## zshrc
+```shell
+cd ~
+ln -s ~/dot/.zshrc
+
+```
+
 ---
 
 ## NeoVim
