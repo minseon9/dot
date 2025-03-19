@@ -1,0 +1,8 @@
+tap "homebrew/bundle"
+brew "lazygit"
+brew "neovim"
+cask "cursor"
+cask "firefox"
+cask "intellij-idea"
+cask "iterm2"
+cask "sublime-text"
