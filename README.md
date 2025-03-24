@@ -5,6 +5,7 @@
 ```shell
 cd ~
 ln -s ~/dot/.zshrc
+ln -s ~/dot/.zprofile
 
 ```
 
