@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 brew "lazygit"
 brew "neovim"
+brew "ruby-build"
+brew "rbenv"
 cask "cursor"
 cask "firefox"
 cask "intellij-idea"
