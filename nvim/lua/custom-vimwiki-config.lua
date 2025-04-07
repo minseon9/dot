@@ -60,7 +60,7 @@ local function create_template()
 	-- 템플릿 생성
 	local template = {
 		"---",
-		"layout      : wiki",
+		"layout      : single",
 		"title       : ",
 		"summary     : ",
 		"date        : " .. os.date("%Y-%m-%d %H:%M:%S +0900"),
