@@ -10,5 +10,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Export
 export PATH=/opt/homebrew/bin:$PATH 
+
+## Ruby
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init - zsh)"
+
+## SDKMAN
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
