@@ -4,10 +4,11 @@ INDENT='   '
 INDENT2="$INDENT$INDENT"
 INDENT3="$INDENT2$INDENT"
 BACKUP_DIR="~/.backup-dotfiles"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 mkdir -p "$BACKUP_DIR"
 
-
+##
 echo "\nSHELL을 준비합니다."
 if [ "$SHELL" != "/bin/zsh" ]; then
     echo "$INDENT 현재 zsh를 사용하고 있지 않습니다."
@@ -31,8 +32,9 @@ if ! command -v brew &> /dev/null; then
 
     if [ "$install_brew" == "y" ]; then
         # https://brew.sh/index_ko
-        /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+	eval "$(/opt/homebrew/bin/brew shellenv)"
         echo "$INDENT Homebrew가 설치되었습니다."
     fi
 else
@@ -47,16 +49,15 @@ if [ ! -e ./Brewfile ]; then
 fi
 if [ -e ./Brewfile ]; then
     echo "$INDENT Brewfile이 현재 경로에 있습니다."
-    read -p "$INDENT2 brew bundle dump를 실행하시겠습니까? (y/n): " user_input
+    read -p "$INDENT2 brew bundle를 실행하시겠습니까? (y/n): " user_input
 
     if [ "$user_input" == "y" ]; then
-        echo "$INDENT3 brew bundle dump를 실행합니다."
-        brew bundle dump
+        echo "$INDENT3 brew bundle를 실행합니다."
+        brew bundle 
     fi
 fi
 
-
-
+##
 echo "\noh my zsh가 설치되어 있는지 검사합니다."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "oh my zsh가 설치되어 있지 않습니다."
@@ -64,34 +65,31 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     read -p "oh my zsh를 설치하시겠습니까? (y/n): " install_omz
 
     if [ "$install_omz" == "y" ]; then
-	/bin/zsh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        # oh-my-zsh 설치 시 자동으로 zsh를 시작하지 않도록 KEEP_ZSHRC=1 설정
+        KEEP_ZSHRC=1 RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
         echo "$INDENT oh my zsh가 설치되었습니다."
-
 
         read -p "fonts를 추가 설치하시겠습니까? (y/n): " install_fonts
 
         if [ "$install_fonts" == "y" ]; then
-	    git clone https://github.com/powerline/fonts.git --depth=1
-	    cd fonts
-	    sh ./install.sh
-	    cd .. && rm -rf fonts
+            git clone https://github.com/powerline/fonts.git --depth=1
+            cd fonts
+            sh ./install.sh
+            cd .. && rm -rf fonts
 
-        echo "$INDENT fonts가 설치되었습니다."
-    fi
-
-
+            echo "$INDENT fonts가 설치되었습니다."
+        fi
     fi
 else
     echo "$INDENT oh my zsh가 이미 설치되어 있습니다."
 fi
 
-
-
+##
 echo "\ndot file들을 symlink를 연결합니다."
 create_symlink() {
-    src=$1
-    dest=$2
+    src="$CURRENT_DIR/$1"
+    dest="$2"
 
     if [ ! -e "$dest" ]; then
         ln -s "$src" "$dest"
@@ -110,8 +108,9 @@ create_symlink() {
     fi
 }
 
-create_symlink ./.zshrc ~/.zshrc
-create_symlink ./.ideavimrc ~/.ideavimrc
+create_symlink ".zshrc" "$HOME/.zshrc"
+create_symlink ".zprofile" "$HOME/.zprofile"
+create_symlink ".ideavimrc" "$HOME/.ideavimrc"
 
-mkdir -p ~/.config
-create_symlink ./nvim ~/.config/nvim
+mkdir -p "$HOME/.config"
+create_symlink "nvim" "$HOME/.config/nvim"
