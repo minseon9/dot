@@ -113,4 +113,4 @@ create_symlink ".zprofile" "$HOME/.zprofile"
 create_symlink ".ideavimrc" "$HOME/.ideavimrc"
 
 mkdir -p "$HOME/.config"
-create_symlink "nvim" "$HOME/.config/nvim"
+create_symlink "./nvim" "$HOME/.config/nvim"
