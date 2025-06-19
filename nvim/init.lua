@@ -916,6 +916,7 @@ require("lazy").setup({
 				"bash",
 				"c",
 				"python",
+				"kotlin",
 				"diff",
 				"html",
 				"lua",
