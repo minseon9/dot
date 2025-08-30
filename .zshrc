@@ -18,3 +18,25 @@ export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
 
 ## OpenJDK
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+
+# bun completions
+[ -s "/Users/yeseo/.bun/_bun" ] && source "/Users/yeseo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+## Flutter
+### FVM
+export PATH="$HOME/.fvm_flutter/bin:$PATH"
+alias flutter="fvm flutter"
+
+### [Completion]
+### Completion scripts setup. Remove the following line to uninstall
+[[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
+### [/Completion]
+
+### cocoapods
+export PATH=$HOME/.gem/bin:$PATH
+
