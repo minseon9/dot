@@ -1,0 +1,8 @@
+name: create-context-map
+description: "Create context map showing relationships"
+author: "BMad"
+config_source: "{project-root}/bmad/bmm/config.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/create-context-map"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

@@ -1,0 +1,36 @@
+name: manage-git-worktree
+description: "Manage git worktree for agent-specific work. Each agent gets their own worktree to avoid conflicts."
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/manage-git-worktree"
+template: false # Action workflow
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  project_root: "{project-root}"
+  agent_name: "" # e.g., "spring-backend-dev", "flutter-dev"
+  agent_type: "" # "backend", "mobile", "frontend" - auto-detected from agent_name
+  story_key: "" # e.g., "1-2-user-authentication"
+  action: "" # "create", "get", "remove", "list"
+  base_branch: "master" # Base branch for worktree (default: master)
+  branch_name: "" # Branch name for worktree (if not provided, will be auto-generated)
+  worktree_path: "" # Custom worktree path (auto-generated if not provided)
+
+# Output configuration
+# Sets worktree_path variable for use by other workflows
+
+recommended_inputs:
+  - story: "Story file to work on"
+  - agent: "Agent name/type"
+
+standalone: true

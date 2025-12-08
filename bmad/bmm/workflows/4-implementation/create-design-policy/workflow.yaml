@@ -1,0 +1,32 @@
+name: create-design-policy
+description: "Create design policies for a story's requirements. Ensures policies address story requirements and align with design system."
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/create-design-policy"
+template: false # Action workflow
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  story_dir: "{config_source}:dev_story_location"
+  story_file: "" # Story file
+  story_key: "" # Story key
+  design_system_ref: "" # Design system reference (Figma link or doc)
+
+# Output configuration
+design_policy_file: "{output_folder}/design-policies/{{story_key}}-policy.md"
+
+recommended_inputs:
+  - story: "Story file with requirements"
+  - design_system: "Design system documentation or Figma link"
+
+standalone: true

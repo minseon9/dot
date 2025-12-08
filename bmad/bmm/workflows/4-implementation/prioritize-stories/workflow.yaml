@@ -1,0 +1,33 @@
+name: prioritize-stories
+description: "Prioritize stories based on metrics and business value. Uses data-driven analysis to rank stories by impact, urgency, and metrics."
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/prioritize-stories"
+template: false # Action workflow
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  story_dir: "{config_source}:dev_story_location"
+  sprint_status_file: "{output_folder}/sprint-status.yaml"
+  prioritize_all: true # Prioritize all stories in backlog
+  prioritization_method: "metrics" # metrics, value, impact, or custom
+
+# Output configuration
+prioritization_report_file: "{output_folder}/story-prioritization-{{date}}.md"
+
+recommended_inputs:
+  - stories: "Story files to prioritize"
+  - sprint_status: "sprint-status.yaml for backlog context"
+  - metrics: "Business metrics and KPIs"
+
+standalone: true

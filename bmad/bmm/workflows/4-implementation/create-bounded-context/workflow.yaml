@@ -1,0 +1,8 @@
+name: create-bounded-context
+description: "Create a new bounded context definition"
+author: "BMad"
+config_source: "{project-root}/bmad/bmm/config.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/create-bounded-context"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

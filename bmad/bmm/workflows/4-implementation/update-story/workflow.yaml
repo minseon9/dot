@@ -1,0 +1,36 @@
+name: update-story
+description: "Update story with problem definition, solution results, and metrics. Ensures each story contains exactly one requirement and tracks problem-solution-metrics lifecycle."
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/update-story"
+template: false # Action workflow - updates existing story
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  story_dir: "{config_source}:dev_story_location"
+  story_file: "" # Will be elicited or auto-discovered
+  story_key: "" # e.g., "1-2-user-authentication"
+  problem_definition: "" # The requirement/problem being solved
+  solution_results: "" # What was implemented/delivered
+  metrics: "" # Measurable outcomes and KPIs
+  update_type: "" # problem, solution, metrics, or all
+
+# Output configuration
+# Updates existing story file
+default_output_file: "{story_dir}/{{story_key}}.md"
+
+recommended_inputs:
+  - story: "Story file to update"
+  - sprint_status: "sprint-status.yaml for story tracking"
+
+standalone: true

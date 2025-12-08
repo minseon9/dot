@@ -1,0 +1,20 @@
+name: update-design-system
+description: "Update design system with new patterns/components"
+author: "BMad"
+
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/update-design-system"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+variables:
+  figma_file_id: ""
+  new_components: ""
+
+standalone: true

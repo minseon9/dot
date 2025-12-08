@@ -1,0 +1,37 @@
+name: create-task-tickets
+description: "Create Kanban tickets for each task in a story, based on architecture and story tasks. Each ticket includes code-level implementation plans."
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+document_output_language: "{config_source}:document_output_language"
+story_dir: "{config_source}:dev_story_location"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/create-task-tickets"
+template: false # Action workflow
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  story_file: "" # Story file path
+  story_key: "" # e.g., "1-2-user-authentication"
+  story_ticket_id: "" # Vibe Kanban ticket ID for the story ticket (optional)
+  architecture_file: "" # Architecture document path (optional, auto-discover if not provided)
+  project_id: "" # Vibe Kanban project ID (will be elicited if not provided)
+  agent_type: "" # "backend", "frontend", "mobile" - determines which tasks to create tickets for
+
+# Output configuration
+# Creates tickets in Vibe Kanban and updates story file
+
+recommended_inputs:
+  - story: "Story file to decompose into task tickets"
+  - architecture: "Architecture document for implementation patterns"
+  - story_ticket: "Vibe Kanban ticket for the story"
+
+standalone: true

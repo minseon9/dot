@@ -1,0 +1,33 @@
+name: validate-story
+description: "Validate story completeness ensuring it contains problem definition, solution results, and metrics. Verifies single requirement principle."
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/validate-story"
+template: false # Validation workflow - no template
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  story_dir: "{config_source}:dev_story_location"
+  story_file: "" # Story file to validate
+  story_key: "" # Optional story key
+  validate_all: false # Validate all stories in directory
+
+# Output configuration
+# Generates validation report
+validation_report_file: "{output_folder}/story-validation-{{date}}.md"
+
+recommended_inputs:
+  - story: "Story file to validate"
+  - sprint_status: "sprint-status.yaml for context"
+
+standalone: true

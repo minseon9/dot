@@ -1,0 +1,8 @@
+name: manage-domain-model
+description: "Manage complete domain model"
+author: "BMad"
+config_source: "{project-root}/bmad/bmm/config.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/manage-domain-model"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

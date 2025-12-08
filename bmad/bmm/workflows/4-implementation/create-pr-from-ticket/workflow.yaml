@@ -1,0 +1,41 @@
+name: create-pr-from-ticket
+description: "Create a pull request from completed work: find ticket from branch name, create PR with template, update ticket to in-review"
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+document_output_language: "{config_source}:document_output_language"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/create-pr-from-ticket"
+template: false # Action workflow
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  branch_name: "" # Current branch name (optional, will be detected from git)
+  task_ticket_id: "" # Vibe Kanban task ticket ID (optional, will be found from branch name)
+  project_id: "" # Vibe Kanban project ID (optional, will be extracted from ticket)
+  agent_name: "" # e.g., "spring-backend-dev", "flutter-dev" - auto-detected from context
+  agent_type: "" # "backend", "mobile" - auto-detected from agent_name
+  worktree_path: "" # Worktree path - will be detected or asked
+  base_branch: "" # Base branch (branch where work started) - will be detected from git
+  head_branch: "" # Head branch (current task branch) - will be detected from git
+  pr_title: "" # PR title (optional, will be generated from branch name and ticket)
+  pr_template_path: "{project-root}/.github/pull_request_template.md" # PR template path
+  repo_owner: "" # GitHub repository owner (will be detected from git remote)
+  repo_name: "" # GitHub repository name (will be detected from git remote)
+
+# Output configuration
+# Creates PR in GitHub and updates ticket to in-review
+
+recommended_inputs:
+  - branch_name: "Current branch name (optional, will be auto-detected)"
+  - pr_title: "PR title (optional, will be generated from branch name and ticket)"
+
+standalone: true

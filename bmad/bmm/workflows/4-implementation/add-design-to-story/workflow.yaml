@@ -1,0 +1,21 @@
+name: add-design-to-story
+description: "Add design policies and Figma links to story"
+author: "BMad"
+
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/add-design-to-story"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+variables:
+  story_file: ""
+  policy_file: ""
+  figma_link: ""
+
+standalone: true

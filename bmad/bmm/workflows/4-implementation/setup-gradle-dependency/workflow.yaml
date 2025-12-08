@@ -1,0 +1,8 @@
+name: setup-gradle-dependency
+description: "Add or update Gradle dependencies"
+author: "BMad"
+config_source: "{project-root}/bmad/bmm/config.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/setup-gradle-dependency"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

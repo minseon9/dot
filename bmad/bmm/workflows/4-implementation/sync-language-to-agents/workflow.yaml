@@ -1,0 +1,20 @@
+name: sync-language-to-agents
+description: "Ensure all agents have latest ubiquitous language loaded. Updates agent critical_actions to load language file."
+author: "BMad"
+
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/sync-language-to-agents"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+variables:
+  language_file: "{output_folder}/ubiquitous-language/ubiquitous-language.yaml"
+  agent_dir: "{project-root}/bmad/bmm/agents"
+
+standalone: true

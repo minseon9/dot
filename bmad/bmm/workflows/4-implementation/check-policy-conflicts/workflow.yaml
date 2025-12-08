@@ -1,0 +1,21 @@
+name: check-policy-conflicts
+description: "Check for conflicts between design policies in the registry. Ensures policies don't contradict each other and identifies opportunities for reuse."
+author: "BMad"
+
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/check-policy-conflicts"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+variables:
+  policy_registry: "{output_folder}/design-policies/registry.yaml"
+  policy_id: "" # Specific policy to check, or empty for all
+  check_all: false
+
+standalone: true

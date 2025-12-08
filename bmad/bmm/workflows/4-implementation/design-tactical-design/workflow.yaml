@@ -1,0 +1,8 @@
+name: design-tactical-design
+description: "Design tactical patterns"
+author: "BMad"
+config_source: "{project-root}/bmad/bmm/config.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/design-tactical-design"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

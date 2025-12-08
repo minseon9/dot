@@ -1,0 +1,35 @@
+name: prepare-work
+description: "Prepare work environment: check worktree, create branch from previous work branch, update ticket to in-progress"
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/prepare-work"
+template: false # Action workflow
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  task_ticket_id: "" # Vibe Kanban task ticket ID (required)
+  project_id: "" # Vibe Kanban project ID (optional, will be extracted from ticket)
+  agent_name: "" # e.g., "spring-backend-dev", "flutter-dev" - auto-detected from context
+  agent_type: "" # "backend", "mobile" - auto-detected from agent_name
+  story_key: "" # e.g., "1-2-user-authentication" - optional, extracted from ticket
+  worktree_path: "" # Worktree path - will be determined or created
+  branch_name: "" # Branch name - will be generated from ticket prefix
+  base_branch: "" # Previous work branch - will be detected from worktree or git history
+
+# Output configuration
+# Sets worktree_path and branch_name for use by other workflows
+
+recommended_inputs:
+  - task_ticket: "Vibe Kanban task ticket ID"
+
+standalone: true

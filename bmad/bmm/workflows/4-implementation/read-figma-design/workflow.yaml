@@ -1,0 +1,9 @@
+name: read-figma-design
+description: "Read design system and UI from Figma using MCP"
+author: "BMad"
+
+config_source: "{project-root}/bmad/bmm/config.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/read-figma-design"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

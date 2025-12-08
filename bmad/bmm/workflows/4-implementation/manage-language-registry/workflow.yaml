@@ -1,0 +1,9 @@
+name: manage-language-registry
+description: "Manage ubiquitous language registry"
+author: "BMad"
+config_source: "{project-root}/bmad/bmm/config.yaml"
+language_file: "{output_folder}/ubiquitous-language/ubiquitous-language.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/manage-language-registry"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

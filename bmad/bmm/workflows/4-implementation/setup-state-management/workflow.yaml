@@ -1,0 +1,8 @@
+name: setup-state-management
+description: "Setup state management for Flutter"
+author: "BMad"
+config_source: "{project-root}/bmad/bmm/config.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/setup-state-management"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

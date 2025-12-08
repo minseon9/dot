@@ -1,0 +1,20 @@
+name: validate-language-usage
+description: "Validate that all agents/stories/documents use ubiquitous language correctly"
+author: "BMad"
+
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/validate-language-usage"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+variables:
+  language_file: "{output_folder}/ubiquitous-language/ubiquitous-language.yaml"
+  target_files: "" # Files to validate (stories, docs, etc.)
+
+standalone: true

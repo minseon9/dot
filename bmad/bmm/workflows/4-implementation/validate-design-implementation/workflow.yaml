@@ -1,0 +1,8 @@
+name: validate-design-implementation
+description: "Validate Flutter implementation matches Figma design"
+author: "BMad"
+config_source: "{project-root}/bmad/bmm/config.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/validate-design-implementation"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

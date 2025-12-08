@@ -1,0 +1,36 @@
+name: review-task-tickets
+description: "Review task tickets for implementation plan quality, completeness, and feasibility. Update tickets if needed."
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+document_output_language: "{config_source}:document_output_language"
+story_dir: "{config_source}:dev_story_location"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/review-task-tickets"
+template: false # Action workflow
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  story_file: "" # Story file path
+  story_key: "" # e.g., "1-2-user-authentication"
+  story_ticket_id: "" # Vibe Kanban ticket ID for the story ticket (optional)
+  task_ticket_ids: [] # List of task ticket IDs to review (optional, will load from story if not provided)
+  project_id: "" # Vibe Kanban project ID (will be elicited if not provided)
+  auto_update: false # Automatically update tickets with improvements (default: false, ask user first)
+
+# Output configuration
+# Creates review report and optionally updates tickets
+
+recommended_inputs:
+  - story: "Story file containing task ticket references"
+  - task_tickets: "List of task ticket IDs to review"
+
+standalone: true

@@ -1,0 +1,36 @@
+name: manage-story-ticket
+description: "Create or update Vibe Kanban ticket for story with 1:1 mapping. Synchronizes story status with ticket status and manages ticket lifecycle."
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/manage-story-ticket"
+template: false # Action workflow
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  story_dir: "{config_source}:dev_story_location"
+  story_file: "" # Story file path
+  story_key: "" # e.g., "1-2-user-authentication"
+  project_id: "" # Vibe Kanban project ID (will be elicited)
+  ticket_id: "" # Existing ticket ID if updating
+  action: "" # create, update, or sync
+  ticket_title: "" # Pre-prepared ticket title (from calling workflow)
+  ticket_description: "" # Pre-prepared ticket description (from calling workflow)
+
+# Output configuration
+# No file output - updates ticket in Vibe Kanban
+
+recommended_inputs:
+  - story: "Story file to link with ticket"
+  - sprint_status: "sprint-status.yaml for story status"
+
+standalone: true

@@ -1,0 +1,11 @@
+name: define-api-interface
+description: "Define API interface contract using ubiquitous language for frontend communication"
+author: "BMad"
+
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+language_file: "{output_folder}/ubiquitous-language/ubiquitous-language.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/define-api-interface"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true

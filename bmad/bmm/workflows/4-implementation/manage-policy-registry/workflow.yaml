@@ -1,0 +1,20 @@
+name: manage-policy-registry
+description: "Manage design policy registry: search, view, update, and organize policies"
+author: "BMad"
+
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/manage-policy-registry"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+variables:
+  policy_registry: "{output_folder}/design-policies/registry.yaml"
+  action: "" # search, view, update, organize
+
+standalone: true

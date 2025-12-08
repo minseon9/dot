@@ -1,0 +1,34 @@
+name: define-requirement
+description: "Define a problem/requirement and create corresponding story. Ensures single requirement per story and establishes problem-solution-metrics structure."
+author: "BMad"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Workflow components
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/define-requirement"
+template: false # Action workflow - creates story
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Variables and inputs
+variables:
+  story_dir: "{config_source}:dev_story_location"
+  problem_description: "" # Problem/requirement to solve
+  epic_num: "" # Epic number (will be elicited)
+  story_num: "" # Story number (will be auto-assigned)
+  create_story: true # Create story file after requirement definition
+
+# Output configuration
+# Creates new story file
+default_output_file: "{story_dir}/{{story_key}}.md"
+
+recommended_inputs:
+  - epics: "Epic breakdown for context"
+  - prd: "PRD for business context"
+
+standalone: true

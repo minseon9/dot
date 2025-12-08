@@ -1,0 +1,8 @@
+name: implement-figma-ui
+description: "Implement Flutter UI from Figma design specifications"
+author: "BMad"
+config_source: "{project-root}/bmad/bmm/config.yaml"
+installed_path: "{project-root}/bmad/bmm/workflows/4-implementation/implement-figma-ui"
+template: false
+instructions: "{installed_path}/instructions.md"
+standalone: true
