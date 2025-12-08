@@ -60,22 +60,21 @@ local function create_template()
 	-- 템플릿 생성
 	local template = {
 		"---",
-		"layout      : single",
-		"title       : ",
-		"summary     : ",
-		"date        : " .. os.date("%Y-%m-%d %H:%M:%S +0900"),
-		"updated     : " .. os.date("%Y-%m-%d %H:%M:%S +0900"),
-		"category    : ",
-		"tags        : ",
-		"toc         : true",
-		"public      : true",
-		"parent      : ",
-		"latex       : false",
-		"resource    : " .. vim.fn.system("uuidgen"):gsub("\n", ""),
+		"layout		: single",
+		"title		: ",
+		"summary	: ",
+		"date		: " .. os.date("%Y-%m-%d %H:%M:%S +0900"),
+		"updated	: " .. os.date("%Y-%m-%d %H:%M:%S +0900"),
+		"category	: ",
+		"tags		: ",
+		"toc		: true",
+		"public		: true",
+		"parent		: ",
+		"latex		: false",
+		"resource	: " .. vim.fn.system("uuidgen"):gsub("\n", ""),
+		"author_profile :  false",
+		"classes	:  wide",
 		"---",
-		"* TOC",
-		"{:toc}",
-		"",
 		"# ",
 	}
 
@@ -84,6 +83,16 @@ local function create_template()
 
 	-- 커서를 문서 끝으로 이동
 	vim.api.nvim_win_set_cursor(0, { #template, 0 })
+end
+
+local function auto_date_prefix_linker()
+	local date_prefix = vim.fn.strftime("%Y-%m-%d")
+	local word = vim.fn.expand("<cword>")
+
+	if word ~= "" then
+		local new_link = "[[" .. date_prefix .. "-" .. word .. "]]"
+		vim.cmd("normal! ciw" .. new_link)
+	end
 end
 
 -- 자동 명령 그룹 설정
@@ -143,13 +152,20 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = "vimwikiauto",
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "vimwiki",
+	callback = function()
+		vim.keymap.set("n", "<Leader>wn", auto_date_prefix_linker, { buffer = true })
+	end,
+})
+
 return {
 	{
 		"vimwiki/vimwiki",
 		init = function()
 			vim.g.vimwiki_list = {
 				{
-					path = "~/minseon9.github.io/_wiki",
+					path = "~/minseon9.github.io/_posts",
 					ext = "md",
 				},
 			}
