@@ -32,6 +32,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/.fvm_flutter/bin:$PATH"
 alias flutter="fvm flutter"
 
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
+
 ### [Completion]
 ### Completion scripts setup. Remove the following line to uninstall
 [[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
