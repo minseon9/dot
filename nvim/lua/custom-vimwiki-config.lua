@@ -165,7 +165,7 @@ return {
 		init = function()
 			vim.g.vimwiki_list = {
 				{
-					path = "~/minseon9.github.io/_posts",
+					path = "~/minseon9.github.io/",
 					ext = "md",
 				},
 			}
