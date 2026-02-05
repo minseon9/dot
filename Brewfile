@@ -1,3 +1,4 @@
+tap "anomalyco/tap"
 tap "homebrew/bundle"
 tap "sdkman/tap"
 brew "gradle"
