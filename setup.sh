@@ -111,6 +111,7 @@ create_symlink() {
 create_symlink ".zshrc" "$HOME/.zshrc"
 create_symlink ".zprofile" "$HOME/.zprofile"
 create_symlink ".ideavimrc" "$HOME/.ideavimrc"
+create_symlink ".vscode" "$HOME/.vscode"
 
 mkdir -p "$HOME/.config"
 create_symlink "./nvim" "$HOME/.config/nvim"
