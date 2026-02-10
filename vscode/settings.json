@@ -1,0 +1,234 @@
+{
+  // default
+  "workbench.iconTheme": "vs-minimal",
+  "workbench.preferredDarkColorTheme": "Experimental Light",
+  "workbench.preferredHighContrastColorTheme": "Experimental Light",
+  "workbench.preferredHighContrastLightColorTheme": "Experimental Light",
+  "workbench.preferredLightColorTheme": "Experimental Light",
+  "workbench.colorTheme": "GitHub Light",
+  "editor.formatOnSave": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+
+
+  // vim
+  "vim.leader": "<Space>", 
+   "vim.scroll": 5, 
+  "vim.incsearch": true, 
+  "editor.lineNumbers": "on",
+
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.duration": 200,
+  "vim.useSystemClipboard": true,
+
+  "vim.normalModeKeyBindings": [
+    // Terminal
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
+      "before": ["<leader>", "t", "t"],
+      "commands": ["workbench.action.closePanel"]
+    },
+    
+    // Save
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.files.saveAll"]
+    },
+    
+    // File navigation
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": ["workbench.view.explorer"]
+    },
+    
+    // Go to definition
+    {
+      "before": ["<leader>", "<CR>"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    
+    // Navigation history
+    {
+      "before": ["<leader>", "["],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
+      "before": ["<leader>", "]"],
+      "commands": ["workbench.action.navigateForward"]
+    },
+    
+    // Go to line
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.gotoLine"]
+    },
+    
+    // Split navigation
+    {
+      "before": ["<C-l>"],
+      "commands": ["workbench.action.focusNextGroup"]
+    },
+    {
+      "before": ["<C-h>"],
+      "commands": ["workbench.action.focusPreviousGroup"]
+    },
+    
+    // Tab navigation
+    {
+      "before": ["L"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["H"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    
+    // Symbol navigation
+    {
+      "before": ["<leader>", "l", "s"],
+      "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
+      "before": ["<leader>", "l", "S"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    
+    // Find in files
+    {
+      "before": ["<leader>", "g"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    
+    // Reload/sync file
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["workbench.action.files.revert"]
+    },
+    
+    // Command palette
+    {
+      "before": ["<leader>", "s", "a"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    
+    // File explorer reveal
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.files.action.showActiveFileInExplorer"]
+    },
+    
+    // Toggle breakpoint
+    {
+      "before": ["<leader>", "d", "t"],
+      "commands": ["editor.debug.action.toggleBreakpoint"]
+    },
+    {
+      "before": ["<leader>", "b"],
+      "commands": ["editor.debug.action.toggleBreakpoint"]
+    },
+    
+    // Close editors
+    {
+      "before": ["<leader>", "b", "h"],
+      "commands": ["workbench.action.closeEditorsToTheLeft"]
+    },
+    {
+      "before": ["<leader>", "b", "l"],
+      "commands": ["workbench.action.closeEditorsToTheRight"]
+    },
+    
+    // Close split
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    
+    // Clear notifications
+    {
+      "before": ["<leader>", "n", "n"],
+      "commands": ["notifications.clearAll"]
+    },
+    
+    // Move lines
+    {
+      "before": ["<A-k>"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["<A-j>"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    
+    // Comment
+    {
+      "before": ["<leader>", "/"],
+      "commands": ["editor.action.commentLine"]
+    },
+    
+    // Show problems
+    {
+      "before": ["<leader>", "h", "h"],
+      "commands": ["workbench.actions.view.problems"]
+    },
+    
+    // Rename
+    {
+      "before": ["<leader>", "l", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    
+    // Find references
+    {
+      "before": ["g", "r"],
+      "commands": ["references-view.findReferences"]
+    },
+    
+    // Show hover
+    {
+      "before": ["g", "l"],
+      "commands": ["editor.action.showHover"]
+    },
+    
+    // Organize imports
+    {
+      "before": ["<leader>", "O"],
+      "commands": ["editor.action.organizeImports"]
+    },
+    
+    // Next/Previous error
+    {
+      "before": ["<leader>", "l", "j"],
+      "commands": ["editor.action.marker.nextInFiles"]
+    },
+    {
+      "before": ["<leader>", "l", "k"],
+      "commands": ["editor.action.marker.prevInFiles"]
+    },
+  ],
+  
+  // ===== Visual Mode Key Bindings =====
+  "vim.visualModeKeyBindings": [
+    // Move selected lines
+    {
+      "before": ["<A-j>"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["<A-k>"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    
+    // Comment selection
+    {
+      "before": ["<leader>", "/"],
+      "commands": ["editor.action.commentLine"]
+    }
+  ]
+}
