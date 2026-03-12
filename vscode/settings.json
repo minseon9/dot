@@ -15,11 +15,13 @@
   "vim.leader": "<Space>", 
    "vim.scroll": 5, 
   "vim.incsearch": true, 
-  "editor.lineNumbers": "on",
+  "editor.lineNumbers": "relative",
 
   "vim.highlightedyank.enable": true,
   "vim.highlightedyank.duration": 200,
   "vim.useSystemClipboard": true,
+
+  "vim.commentary": true,
 
   "vim.normalModeKeyBindings": [
     // Terminal
@@ -143,11 +145,21 @@
       "before": ["<leader>", "b", "l"],
       "commands": ["workbench.action.closeEditorsToTheRight"]
     },
+
+    // Split
+    {
+      "before": ["<C-S-l>"],
+      "commands": ["workbench.action.moveEditorRight"]
+    },
+    {
+      "before": ["<C-S-h>"],
+      "commands": ["workbench.action.moveEditorLeft"]
+    },
     
     // Close split
     {
       "before": ["<leader>", "q"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "commands": ["workbench.action.closeEditorsInGroup"]
     },
     
     // Clear notifications
@@ -210,7 +222,7 @@
     {
       "before": ["<leader>", "l", "k"],
       "commands": ["editor.action.marker.prevInFiles"]
-    },
+    }
   ],
   
   // ===== Visual Mode Key Bindings =====

@@ -3,7 +3,7 @@
 INDENT='   '
 INDENT2="$INDENT$INDENT"
 INDENT3="$INDENT2$INDENT"
-BACKUP_DIR="~/.backup-dotfiles"
+BACKUP_DIR="$HOME/.backup-dotfiles"
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 mkdir -p "$BACKUP_DIR"
@@ -113,6 +113,7 @@ create_symlink ".zprofile" "$HOME/.zprofile"
 create_symlink ".ideavimrc" "$HOME/.ideavimrc"
 create_symlink "vscode/.vscode" "$HOME/.vscode"
 create_symlink "vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+create_symlink "vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 
 mkdir -p "$HOME/.config"
 create_symlink "./nvim" "$HOME/.config/nvim"

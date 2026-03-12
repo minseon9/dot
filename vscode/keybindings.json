@@ -1,0 +1,23 @@
+[
+  {
+    "key": "space",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "list.select",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    "when": "listFocus && explorerViewletVisible && !inputFocus && !explorerResourceIsFolder"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.moveEditorToRightGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.moveEditorToLeftGroup",
+    "when": "editorTextFocus"
+  }
+]
