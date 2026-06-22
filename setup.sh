@@ -114,6 +114,7 @@ create_symlink ".ideavimrc" "$HOME/.ideavimrc"
 create_symlink "vscode/.vscode" "$HOME/.vscode"
 create_symlink "vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 create_symlink "vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+create_symlink ".config/git/ignore" "$HOME/.config/git/ignore"
 
 mkdir -p "$HOME/.config"
 create_symlink "./nvim" "$HOME/.config/nvim"
