@@ -1,6 +1,6 @@
 [user]
 	name = miseon9
-	email = dlaepeul@gmail.com
+	email = minseong.oyat@gmail.com
 [diff]
 	color = true
 	tool = nvimdiff
@@ -11,3 +11,6 @@
 	diff = auto
 	status = always
 	branch = auto
+[core]
+	quotePath = false
+	excludesfile = ~/.gitignore
