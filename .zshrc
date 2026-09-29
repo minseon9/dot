@@ -27,19 +27,32 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 
-## Flutter
-### FVM
-export PATH="$HOME/.fvm_flutter/bin:$PATH"
-alias flutter="fvm flutter"
-
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-export PATH="$PATH":"$HOME/fvm/versions/stable/bin/cache/dart-sdk/bin"
-
 ### [Completion]
 ### Completion scripts setup. Remove the following line to uninstall
 [[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 ### [/Completion]
 
-### cocoapods
-export PATH=$HOME/.gem/bin:$PATH
 
+## mysql
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ian/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ian/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ian/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ian/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="$HOME/.local/bin:$PATH"
+
+
+
+
+## Shortcuts
+#
+### MCP
+obsidian-mcp() {
+  nohup npx -y obsidian-mcp@2 serve \
+    --vault kkaebi="/Users/ian/obsidian" \
+    > "$HOME/.obsidian-mcp.log" 2>&1 &
+  
+  echo "obsidian-mcp started (PID: $!)"
+}
